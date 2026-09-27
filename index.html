@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
+  <meta name="theme-color" content="#0f766e" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="description" content="63-Day Internal Medicine Clinical Study Planner for medical interns" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
+  <title>IM Study Planner</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app" id="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-title">
+        <h1>Internal Medicine</h1>
+        <p>63-Day Clinical Study Plan</p>
+      </div>
+      <div class="header-meta">
+        <div class="streak-badge" id="streakBadge" title="Current streak">
+          🔥 <span id="streakCount">0</span>
+        </div>
+        <div class="day-badge" id="dayBadge">Day –/63</div>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main class="main-content" id="mainContent">
+      <!-- TODAY PAGE -->
+      <section class="page active" id="page-today">
+        <div id="todayContent"></div>
+      </section>
+
+      <!-- CALENDAR PAGE -->
+      <section class="page" id="page-calendar">
+        <div class="card">
+          <div class="card-title">📅 63-Day Calendar</div>
+          <div class="calendar-grid" id="calendarGrid"></div>
+        </div>
+      </section>
+
+      <!-- PROGRESS PAGE -->
+      <section class="page" id="page-progress">
+        <div id="progressContent"></div>
+      </section>
+
+      <!-- MISTAKES PAGE -->
+      <section class="page" id="page-mistakes">
+        <div id="mistakesContent"></div>
+      </section>
+
+      <!-- SETTINGS PAGE -->
+      <section class="page" id="page-settings">
+        <div id="settingsContent"></div>
+      </section>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav" id="bottomNav">
+      <button class="nav-item active" data-page="today" aria-label="Today">
+        <span class="icon">🏠</span>
+        <span>Today</span>
+      </button>
+      <button class="nav-item" data-page="calendar" aria-label="Calendar">
+        <span class="icon">📅</span>
+        <span>Calendar</span>
+      </button>
+      <button class="nav-item" data-page="progress" aria-label="Progress">
+        <span class="icon">📊</span>
+        <span>Progress</span>
+      </button>
+      <button class="nav-item" data-page="mistakes" aria-label="Mistakes">
+        <span class="icon">📝</span>
+        <span>Mistakes</span>
+      </button>
+      <button class="nav-item" data-page="settings" aria-label="Settings">
+        <span class="icon">⚙️</span>
+        <span>Settings</span>
+      </button>
+    </nav>
+
+    <!-- Floating Mini Timer -->
+    <div class="floating-timer hidden" id="floatingTimer">
+      <span>⏱️</span>
+      <span id="floatTime">00:00</span>
+      <span id="floatLabel" style="opacity:0.85;font-size:0.8rem;"></span>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modal" role="dialog" aria-modal="true">
+      <div class="modal-header">
+        <h2 id="modalTitle">Modal</h2>
+        <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+      </div>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
